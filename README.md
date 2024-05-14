@@ -1,15 +1,31 @@
-# gnss-analysis
+# GNSS Raw Measurements Processing
+Created by Nir Meir, Ashraf Hijazi , Abed Massarwa
+## Overview
 
-This repository is a collection of Python notebooks and utility modules for processing GNSS data. The primary source of this data is raw GNSS measurements from Android phones, but the utilities and positioning algorithms should be applicable to measurements from other sources as well.
+This project focuses on processing GNSS raw measurements from Android devices. It involves parsing GNSS log files, computing positions using a naive RMS (Root Mean Square) algorithm on weighted pseudo-ranges, and converting coordinates to Lat, Lon, Alt. The final output includes a CSV file with calculated positions and a KML file for visualization.
 
-## notebooks
+## Features
 
-Example notebooks for GNSS data processing.
+1. Parse GNSS log files to extract raw measurements.
+2. Calculate positions using a naive RMS algorithm.
+3. Convert ECEF coordinates (X, Y, Z) to Lat, Lon, Alt.
+4. Generate a CSV file with calculated positions.
+5. Generate a KML file for visualization.
 
-## gnssutils
+## Requirements
 
-A Python package of utilities for working with GNSS data. The main module is ephemeris_manager, which dowloads and formats the necessary GNSS ephemeris data from NASA or BKG into a Pandas dataframe. See the README in the gnssutils directory for more info.
+- Python 3.x
+- Pandas
+- Numpy
+- Matplotlib
+- Navpy
+- LXML
+- Pykml
+- GNSSutils (local module)
 
-## data
+## Installation
 
-Cache for data files associated with this project. The repository provides one sample Android GNSS log collected in Seattle.
+Install the required Python packages using pip:
+
+```bash
+pip install pandas numpy matplotlib navpy lxml pykml
