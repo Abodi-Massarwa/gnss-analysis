@@ -66,17 +66,35 @@ This approach ensures the notebook runs on any computer without requiring change
 
 4. Open the `EX0.ipynb` notebook and follow the steps to run the code cells.
 
-## Example
+### Example of Setting File Paths in the Main Function
 
-Here is an example of how to run the notebook using relative paths:
+In your Jupyter notebook, you can set the file paths within the `main` function to ensure they are relative. Here’s an example of how to do this:
 
-1. Start the Jupyter notebook server:
+```python
+import os
 
-    ```sh
-    jupyter notebook
-    ```
+def main():
+    try:
+        base_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the script
+    except NameError:
+        base_dir = os.getcwd()  # Fallback to current working directory
 
-2. Open the `EX0.ipynb` notebook and execute the cells.
+    # Insert relative path of each file
+    input_filepath = os.path.join(base_dir, 'data/input_files/Driving/gnss_log_2024_04_13_19_53_33.txt')
+    output_csv = os.path.join(base_dir, 'data/output_parsed_files/csv/calculated_position_driving.csv')
+    output_kml = os.path.join(base_dir, 'data/output_parsed_files/kml/KML_driving.kml')
+
+    measurements, android_fixes_df = parse_log_file(input_filepath)
+    process_timestamps(measurements)
+    calculate_pseudoranges(measurements)
+    ecef_array, rms_list, sv_positions, measurements_filtered = process_epochs_rms(measurements)
+    save_to_csv(ecef_array, measurements_filtered, sv_positions, output_csv)
+    lla_array = np.stack(navpy.ecef2lla(ecef_array), axis=1)
+    create_kml_file(lla_array, output_kml)
+
+if __name__ == '__main__':
+    main()
+```
 
 ## Output
 
@@ -110,4 +128,4 @@ This project is licensed under the MIT License.
 
 ---
 
-This README provides clear instructions on how to install dependencies and run the Jupyter notebook, ensuring the project is portable across different systems.
+This README now includes a clear example of how to set the file paths within the `main` function, making it more helpful for users to configure and run the notebook on different systems.
