@@ -1,5 +1,3 @@
-Sure, I'll update your README to include instructions for handling relative paths and running the script. Here's the modified README:
-
 ---
 
 # GNSS Raw Measurements Processing
@@ -40,12 +38,12 @@ pip install pandas numpy matplotlib navpy lxml pykml
 
 ### Using Relative Paths
 
-This approach ensures the script runs on any computer without requiring changes to file paths, as long as the directory structure is maintained.
+This approach ensures the notebook runs on any computer without requiring changes to file paths, as long as the directory structure is maintained.
 
 1. Ensure your GNSS log file is located in the appropriate directory (e.g., `data/input_files/Driving/`).
-2. The script uses relative paths to locate the input file and save the output files.
+2. The notebook uses relative paths to locate the input file and save the output files.
 
-### Running the Script
+### Running the Jupyter Notebook
 
 1. Clone the repository:
 
@@ -60,23 +58,29 @@ This approach ensures the script runs on any computer without requiring changes 
     pip install -r requirements.txt
     ```
 
-3. Run the script:
+3. Start the Jupyter notebook server:
 
     ```sh
-    python gnss_analysis.py
+    jupyter notebook
     ```
+
+4. Open the `EX0.ipynb` notebook and follow the steps to run the code cells.
 
 ## Example
 
-Here is an example of how to run the script using relative paths:
+Here is an example of how to run the notebook using relative paths:
 
-```sh
-$ python gnss_analysis.py
-```
+1. Start the Jupyter notebook server:
+
+    ```sh
+    jupyter notebook
+    ```
+
+2. Open the `EX0.ipynb` notebook and execute the cells.
 
 ## Output
 
-The script generates two output files:
+The notebook generates two output files:
 1. **CSV File**: Contains the calculated positions along with satellite information.
 2. **KML File**: Can be opened with Google Earth to visualize the computed path.
 
@@ -91,7 +95,7 @@ gnss-analysis/
 │   └── output_parsed_files/
 │       ├── csv/
 │       └── kml/
-├── gnss_analysis.py
+├── EX0.ipynb
 ├── requirements.txt
 └── README.md
 ```
@@ -106,4 +110,4 @@ This project is licensed under the MIT License.
 
 ---
 
-This README provides clear instructions on how to install dependencies, run the script, and handle file paths, ensuring the project is portable across different systems.
+This README provides clear instructions on how to install dependencies and run the Jupyter notebook, ensuring the project is portable across different systems.
