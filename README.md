@@ -29,3 +29,8 @@ Install the required Python packages using pip:
 
 ```bash
 pip install pandas numpy matplotlib navpy lxml pykml
+
+## How to run
+1. Install the necessary dependencies.
+2. Run the Jupyter notebook `EX0.ipynb` and follow the steps.
+
